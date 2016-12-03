@@ -1,4 +1,5 @@
-    
+
+/*
 // apply movement friction
 if (move_friction > 0)
 {
@@ -8,7 +9,7 @@ if (move_friction > 0)
     }
     velocity_x = (velocity_x * move_friction);
 }
-    
+
 // apply horizontal restrictions
 if (max_velocity_x != 0)
 {
@@ -20,6 +21,7 @@ if (max_velocity_y != 0)
 {
     velocity_y = clamp(velocity_y, -max_velocity_y, max_velocity_y);
 }
+*/
 
 // new x/y positions
 mx = (velocity_x * global.TICK);
