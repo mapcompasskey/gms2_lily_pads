@@ -38,11 +38,15 @@ else
 }
 /**/
 
+// store velocities
+last_velocity_x = velocity_x;
+last_velocity_y = velocity_y;
+
 // new x/y positions
 mx = (velocity_x * global.TICK);
 my = (velocity_y * global.TICK);
 
-/**/
+// check if the target will be overshot
 if (move_to_target)
 {
 	var target_overshot = false;
@@ -77,13 +81,6 @@ if (move_to_target)
 		my = (target_y - y);
 	}
 }
-
-
-// store velocities
-//last_velocity_x = mx;
-//last_velocity_y = my;
-last_velocity_x = velocity_x;
-last_velocity_y = velocity_y;
 
 // update position
 x += mx;
