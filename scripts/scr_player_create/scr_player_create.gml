@@ -15,6 +15,10 @@ last_velocity_y = 0;
 target_x = 0;
 target_y = 0;
 move_to_target = false;
+move_to_target_time = 1;
+//move_to_target_timer = 0;
+//distance_to_target = 0;
+//distance_to_step_towards_target = 0;
 
 //max_velocity_x = (speed_x * 2);
 //max_velocity_y = (speed_y * 2);

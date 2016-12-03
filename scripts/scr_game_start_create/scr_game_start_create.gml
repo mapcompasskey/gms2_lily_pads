@@ -5,7 +5,7 @@ if ( ! persistent)
     persistent = true;
 }
 
-game_set_speed(60, gamespeed_fps);
+//game_set_speed(60, gamespeed_fps);
 
 global.PLAYER = noone;
 global.RIGHT = 1;

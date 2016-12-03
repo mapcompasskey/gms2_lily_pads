@@ -23,13 +23,67 @@ if (max_velocity_y != 0)
 }
 */
 
+/** /
+if (move_to_target)
+{
+	// new x/y positions
+	mx = velocity_x;
+	my = velocity_y;
+}
+else
+{
+	// new x/y positions
+	mx = (velocity_x * global.TICK);
+	my = (velocity_y * global.TICK);
+}
+/**/
+
 // new x/y positions
 mx = (velocity_x * global.TICK);
 my = (velocity_y * global.TICK);
-    
+
+/**/
+if (move_to_target)
+{
+	var target_overshot = false;
+	
+	// if moving left
+	if (mx > 0 && (x + mx) > target_x)
+	{
+		target_overshot = true;
+	}
+	// else, if moving right
+	else if (mx < 0 && (x + mx) < target_x)
+	{
+		target_overshot = true;
+	}
+	
+	// if moving down
+	if (my > 0 && (y + my) > target_y)
+	{
+		target_overshot = true;
+	}
+	// else, if moving up
+	else if (my < 0 && (y + my) < target_y)
+	{
+		target_overshot = true;
+	}
+	
+	// if the target was overshot
+	if (target_overshot)
+	{
+		move_to_target = false;
+		mx = (target_x - x);
+		my = (target_y - y);
+	}
+}
+
+
 // store velocities
-last_velocity_x = mx;
-last_velocity_y = my;
+//last_velocity_x = mx;
+//last_velocity_y = my;
+last_velocity_x = velocity_x;
+last_velocity_y = velocity_y;
 
 // update position
 x += mx;
