@@ -3,7 +3,7 @@
 mx = 0;
 my = 0;
 
-speed_x = random_range(8, 12);
+speed_x = 10; //random_range(8, 12);
 speed_y = 0;
 
 velocity_x = (speed_x * global.LEFT);

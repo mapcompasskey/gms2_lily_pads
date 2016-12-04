@@ -761,25 +761,6 @@
             }
         },
         {
-            "Key": "283e6a5b-27c1-4e5a-b830-a83d45f00621",
-            "Value": {
-                "id": "9faa9a00-6f9c-4dac-bd67-e1a881bcbea7",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\\scr_lily_pad_step\\scr_lily_pad_step.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "abeba07b-c9bf-4d93-adbd-2cdb0dc773b5",
             "Value": {
                 "id": "d8756801-1a29-4fec-a598-6de9375f1222",
@@ -886,7 +867,6 @@
         "1962b6e7-7c9b-4105-8687-1d603a4ab40e",
         "376ea957-c037-44ab-994d-9173fe8c21bb",
         "e15d6340-1cd4-477a-a30a-f8e444e25c8c",
-        "283e6a5b-27c1-4e5a-b830-a83d45f00621",
         "abeba07b-c9bf-4d93-adbd-2cdb0dc773b5",
         "5aa05603-8fb0-4be6-b771-68c0c7d8fbe1"
     ],
