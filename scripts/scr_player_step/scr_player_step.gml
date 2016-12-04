@@ -96,6 +96,20 @@ if (move_to_target)
 	// reset velocity
 	velocity_x = last_velocity_x;
 	velocity_y = last_velocity_y;
+	
+	// if player is colliding with a bug
+	if (place_meeting(x, y, obj_bug))
+	{
+		with (obj_bug)
+		{
+			// if bug is colliding with the player instance
+			if (place_meeting(x, y, other))
+			{
+				instance_destroy();
+			}
+		}
+	}
+	
 }
 
 // else, if reached the target
