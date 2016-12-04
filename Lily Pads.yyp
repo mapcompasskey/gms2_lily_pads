@@ -854,6 +854,25 @@
                 "resourcePath": "objects\\obj_lily_pad\\obj_lily_pad.yy",
                 "resourceType": "GMObject"
             }
+        },
+        {
+            "Key": "977cf73a-73a5-4f83-a132-0435075e2279",
+            "Value": {
+                "id": "3b498e7b-bdec-4da6-aa67-fc5e52506ed4",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\\spr_water_tile\\spr_water_tile.yy",
+                "resourceType": "GMSprite"
+            }
         }
     ],
     "room_order": [
