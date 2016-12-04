@@ -133,38 +133,26 @@ else if (mouse_left_pressed)
 	target_y = mouse_y;
 	target_id = noone;
 	
-	// if clicking on the lily pad already being ridin
-	if (riding && instance_riding != noone)
+	// if the target is a lily pad
+	var lilypad = instance_place(target_x, target_y, obj_lily_pad);
+	if (lilypad != noone)
 	{
-		if (position_meeting(target_x, target_y, instance_riding))
+		// if clicking on the lily pad already being ridin
+		if (riding && instance_riding == lilypad)
 		{
 			move_to_target = false;
 			exit;
 		}
-	}
-	
-	// if the target is a lily pad
-	if (position_meeting(target_x, target_y, obj_lily_pad))
-	{
-		// find the lily pad at that position
-		with (obj_lily_pad)
-		{
-			if (position_meeting(other.target_x, other.target_y, id))
-			{
-				// find the distance the lily pad will travel during
-				// the time it will take the player to reach it
-				var travel_offset_x = (velocity_x * other.move_to_target_time);
-				var travel_offset_y = (velocity_y * other.move_to_target_time);
+		
+		// find the distance the lily pad will travel during
+		// the time it will take the player to reach it
+		var travel_offset_x = (lilypad.velocity_x * move_to_target_time);
+		var travel_offset_y = (lilypad.velocity_y * move_to_target_time);
 				
-				// update player target
-				other.target_x = (x + travel_offset_x);
-				other.target_y = (y + travel_offset_y);
-				other.target_id = id;
-				
-				// exit the while loop
-				break;
-			}
-		}
+		// update player target
+		target_x = (lilypad.x + travel_offset_x);
+		target_y = (lilypad.y + travel_offset_y);
+		target_id = lilypad.id;
 	}
 	
 	// reset riding

@@ -49,57 +49,10 @@
         },
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-            "id": "d161b1b5-2de8-49a3-a4fa-dda82145fb57",
-            "modelName": "GMRInstanceLayer",
-            "mvc": "1.0",
-            "depth": 100,
-            "hierarchyFrozen": false,
-            "hierarchyVisible": true,
-            "inheritLayerDepth": false,
-            "inheritLayerSettings": false,
-            "inheritSubLayers": false,
-            "inheritVisibility": false,
-            "layers": [
-                
-            ],
-            "m_parentID": "00000000-0000-0000-0000-000000000000",
-            "m_serialiseFrozen": false,
-            "name": "Player",
-            "userdefined_depth": false,
-            "visible": true,
-            "instances": [
-                {
-                    "id": "5a3d34d2-6c76-432f-b286-d298982ab52f",
-                    "modelName": "GMRInstance",
-                    "mvc": "1.0",
-                    "ignore": false,
-                    "inheritItemSettings": false,
-                    "m_originalParentID": "00000000-0000-0000-0000-000000000000",
-                    "m_serialiseFrozen": false,
-                    "name": "inst_536E4C5D",
-                    "x": 80,
-                    "y": 48,
-                    "IsDnD": false,
-                    "colour": {
-                        "Value": 4294967295
-                    },
-                    "creationCodeFile": "",
-                    "creationCodeType": "",
-                    "inheritCode": false,
-                    "name_with_no_file_rename": "inst_536E4C5D",
-                    "objId": "0f95160a-15d4-40a9-a948-111849b31694",
-                    "rotation": 0,
-                    "scaleX": 1,
-                    "scaleY": 1
-                }
-            ]
-        },
-        {
-            "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
             "id": "213a7d91-04d4-4c3f-b63b-278782698bcc",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": 200,
+            "depth": 100,
             "hierarchyFrozen": false,
             "hierarchyVisible": true,
             "inheritLayerDepth": false,
@@ -207,6 +160,53 @@
                     "inheritCode": false,
                     "name_with_no_file_rename": "inst_66BA50D",
                     "objId": "ca6906d6-206a-4dad-ad81-443db876cdad",
+                    "rotation": 0,
+                    "scaleX": 1,
+                    "scaleY": 1
+                }
+            ]
+        },
+        {
+            "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
+            "id": "d161b1b5-2de8-49a3-a4fa-dda82145fb57",
+            "modelName": "GMRInstanceLayer",
+            "mvc": "1.0",
+            "depth": 200,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+                
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "name": "Player",
+            "userdefined_depth": false,
+            "visible": true,
+            "instances": [
+                {
+                    "id": "5a3d34d2-6c76-432f-b286-d298982ab52f",
+                    "modelName": "GMRInstance",
+                    "mvc": "1.0",
+                    "ignore": false,
+                    "inheritItemSettings": false,
+                    "m_originalParentID": "00000000-0000-0000-0000-000000000000",
+                    "m_serialiseFrozen": false,
+                    "name": "inst_536E4C5D",
+                    "x": 80,
+                    "y": 48,
+                    "IsDnD": false,
+                    "colour": {
+                        "Value": 4294967295
+                    },
+                    "creationCodeFile": "",
+                    "creationCodeType": "",
+                    "inheritCode": false,
+                    "name_with_no_file_rename": "inst_536E4C5D",
+                    "objId": "0f95160a-15d4-40a9-a948-111849b31694",
                     "rotation": 0,
                     "scaleX": 1,
                     "scaleY": 1
