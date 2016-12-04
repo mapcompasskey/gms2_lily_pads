@@ -4,6 +4,7 @@ key_left = keyboard_check(global.KEY_LEFT);
 key_right = keyboard_check(global.KEY_RIGHT);
 key_up = keyboard_check(global.KEY_UP);
 key_down = keyboard_check(global.KEY_DOWN);
+mouse_left_pressed = mouse_check_button_pressed(mb_left);
 
 // clear velocity
 velocity_x = 0;
@@ -57,7 +58,7 @@ if (velocity_x != 0 || velocity_y != 0)
 // The distance conditional prevents the instance from bouncing on the target point
 // as it reaches it, overshoots it, moves back towards it, overshoots it, and on and on.
 //
-
+/*
 if (mouse_check_button(mb_left))
 {
 	move_to_target = false;
@@ -71,20 +72,20 @@ if (mouse_check_button(mb_left))
 	{
 		// get the angle (in degrees) to the target
 		var angle = point_direction(x, y, target_x, target_y);
-	
+		
 		// point towards the target
 		image_angle = angle;
-	
+		
 		// move towards the target
 		// sin() calculations need to be inverted (-1)
 		velocity_x = (dcos(angle) * speed_x);
 		velocity_y = (dsin(angle) * speed_y * -1);
 	}
 }
-
+*/
 
 //
-// Move To Target (Constant Time)
+// Move To Target (With Constant Time)
 //
 // move_to_target is cleared in the END STEP event when overshooting the target.
 //
@@ -95,26 +96,46 @@ if (move_to_target)
 	velocity_x = last_velocity_x;
 	velocity_y = last_velocity_y;
 }
-
-if (mouse_check_button_pressed(mb_right))
+else
 {
-	move_to_target = true;
-	
-	// set the target position
-	target_x = mouse_x;
-	target_y = mouse_y;
-	
-	// get the distance and speed to reach target
-	var target_distance = point_distance(x, y, target_x, target_y);
-	var target_speed = (target_distance / move_to_target_time);
-	
-	// get the angle (in degrees) to the target
-	var angle = point_direction(x, y, target_x, target_y);
-	
-	// point towards the target
-	image_angle = angle;
-	
-	// set the velocity so the target is reached in the set amount of time
-	velocity_x = (dcos(angle) * (target_speed));
-	velocity_y = (dsin(angle) * (target_speed) * -1);
+	if (mouse_left_pressed)
+	{
+		move_to_target = true;
+		
+		// set the target position
+		target_x = mouse_x;
+		target_y = mouse_y;
+		
+		// if the target is a lily pad
+		if (position_meeting(target_x, target_y, obj_lily_pad))
+		{
+			// find the lily pad at that position
+			with (obj_lily_pad)
+			{
+				if (position_meeting(other.target_x, other.target_y, id))
+				{
+					// update player target
+					other.target_x = x;
+					other.target_y = y;
+					
+					// exit the while loop
+					break;
+				}
+			}
+		}
+		
+		// get the distance and speed to reach target
+		var target_distance = point_distance(x, y, target_x, target_y);
+		var target_speed = (target_distance / move_to_target_time);
+		
+		// get the angle (in degrees) to the target
+		var angle = point_direction(x, y, target_x, target_y);
+		
+		// point towards the target
+		image_angle = angle;
+		
+		// set the velocity so the target is reached in the set amount of time
+		velocity_x = (dcos(angle) * (target_speed));
+		velocity_y = (dsin(angle) * (target_speed) * -1);
+	}
 }

@@ -15,13 +15,7 @@ last_velocity_y = 0;
 target_x = 0;
 target_y = 0;
 move_to_target = false;
-move_to_target_time = 1;
-
-//max_velocity_x = (speed_x * 2);
-//max_velocity_y = (speed_y * 2);
-
-//move_friction = 0;     // 0.9 - reduce by 10% every step
-//move_friction_min = 0; // 1   - if less than 1
+move_to_target_time = 0.5; // half a second
 
 // states
 dying = false;
@@ -38,11 +32,4 @@ key_left = false;
 key_right = false;
 key_up = false;
 key_down = false;
-
-
-move_time = 4; // 1 second
-move_timer = 0;
-move_counter = 0;
-
-delta_counter = 0;
-
+mouse_left_pressed = false;

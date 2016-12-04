@@ -1,43 +1,4 @@
 
-/*
-// apply movement friction
-if (move_friction > 0)
-{
-    if (abs(velocity_x * move_friction) < move_friction_min)
-    {
-        velocity_x = 0;
-    }
-    velocity_x = (velocity_x * move_friction);
-}
-
-// apply horizontal restrictions
-if (max_velocity_x != 0)
-{
-    velocity_x = clamp(velocity_x, -max_velocity_x, max_velocity_x);
-}
-    
-// apply vertical restrictions
-if (max_velocity_y != 0)
-{
-    velocity_y = clamp(velocity_y, -max_velocity_y, max_velocity_y);
-}
-*/
-
-/** /
-if (move_to_target)
-{
-	// new x/y positions
-	mx = velocity_x;
-	my = velocity_y;
-}
-else
-{
-	// new x/y positions
-	mx = (velocity_x * global.TICK);
-	my = (velocity_y * global.TICK);
-}
-/**/
-
 // store velocities
 last_velocity_x = velocity_x;
 last_velocity_y = velocity_y;
