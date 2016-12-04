@@ -14,7 +14,9 @@ last_velocity_y = 0;
 
 target_x = 0;
 target_y = 0;
+target_id = noone;
 move_to_target = false;
+moved_to_target = false;
 move_to_target_time = 0.5; // half a second
 
 // states

@@ -38,6 +38,7 @@ if (move_to_target)
 	if (target_overshot)
 	{
 		move_to_target = false;
+		moved_to_target = true;
 		mx = (target_x - x);
 		my = (target_y - y);
 	}
