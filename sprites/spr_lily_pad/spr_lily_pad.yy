@@ -1,7 +1,7 @@
 {
     "id": "ddaf43a5-12eb-4682-8ff2-9eb62bba29a4",
     "modelName": "GMSprite",
-    "mvc": "1.0",
+    "mvc": "1.1",
     "name": "spr_lily_pad",
     "For3D": false,
     "HTile": false,

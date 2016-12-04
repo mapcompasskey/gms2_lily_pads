@@ -3,6 +3,17 @@
 last_velocity_x = velocity_x;
 last_velocity_y = velocity_y;
 
+// if riding a lily pad
+if (riding && instance_riding != noone)
+{
+	if (instance_exists(instance_riding))
+	{
+		// add the lily pad's velocity to the player instance
+		velocity_x += instance_riding.velocity_x;
+		velocity_y += instance_riding.velocity_y;
+	}
+}
+
 // new x/y positions
 mx = (velocity_x * global.TICK);
 my = (velocity_y * global.TICK);
@@ -48,17 +59,8 @@ if (move_to_target)
 x += mx;
 y += my;
 
-// keep instance in the room
+// game is over if leaving the room
 if (bbox_right < 0)
 {
-	x = (room_width - (bbox_right - bbox_left));
-}
-else if (bbox_left > room_width)
-{
-	x = (bbox_right - bbox_left);
-}
-	
-if (bbox_top > room_height)
-{
-	y = sprite_height;
+	game_restart();
 }

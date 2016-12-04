@@ -35,3 +35,6 @@ key_right = false;
 key_up = false;
 key_down = false;
 mouse_left_pressed = false;
+
+riding = false;
+instance_riding = noone;

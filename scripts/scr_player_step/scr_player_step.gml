@@ -106,6 +106,16 @@ else if (moved_to_target)
 	{
 		// *fell in the water
 		game_restart();
+		exit;
+	}
+	
+	// if the target instance exist
+	if (instance_exists(target_id))
+	{
+		riding = true;
+		instance_riding = target_id;
+		//x = target_id.x;
+		//y = target_id.y;
 	}
 	
 	// reset target settings
@@ -120,6 +130,10 @@ else if (mouse_left_pressed)
 {
 	move_to_target = true;
 	
+	// reset riding
+	riding = false;
+	instance_riding = noone;
+		
 	// set the target position
 	target_x = mouse_x;
 	target_y = mouse_y;
@@ -133,11 +147,16 @@ else if (mouse_left_pressed)
 		{
 			if (position_meeting(other.target_x, other.target_y, id))
 			{
+				// find the distance the lily pad will travel during
+				// the time it will take the player to reach it
+				var travel_offset_x = (velocity_x * other.move_to_target_time);
+				var travel_offset_y = (velocity_y * other.move_to_target_time);
+				
 				// update player target
-				other.target_x = x;
-				other.target_y = y;
+				other.target_x = (x + travel_offset_x);
+				other.target_y = (y + travel_offset_y);
 				other.target_id = id;
-					
+				
 				// exit the while loop
 				break;
 			}

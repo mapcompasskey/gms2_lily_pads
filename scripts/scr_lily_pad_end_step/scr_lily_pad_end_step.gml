@@ -17,3 +17,9 @@ if (bbox_right < -wd)
 {
 	x = (room_width + wd);
 }
+
+var hg = (bbox_bottom - bbox_top);
+if (bbox_top > room_height)
+{
+	y = -hg;
+}
