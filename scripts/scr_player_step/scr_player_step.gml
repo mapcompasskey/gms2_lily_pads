@@ -109,13 +109,11 @@ else if (moved_to_target)
 		exit;
 	}
 	
-	// if the target instance exist
+	// if the target instance exists
 	if (instance_exists(target_id))
 	{
 		riding = true;
 		instance_riding = target_id;
-		//x = target_id.x;
-		//y = target_id.y;
 	}
 	
 	// reset target settings
@@ -130,14 +128,20 @@ else if (mouse_left_pressed)
 {
 	move_to_target = true;
 	
-	// reset riding
-	riding = false;
-	instance_riding = noone;
-		
 	// set the target position
 	target_x = mouse_x;
 	target_y = mouse_y;
 	target_id = noone;
+	
+	// if clicking on the lily pad already being ridin
+	if (riding && instance_riding != noone)
+	{
+		if (position_meeting(target_x, target_y, instance_riding))
+		{
+			move_to_target = false;
+			exit;
+		}
+	}
 	
 	// if the target is a lily pad
 	if (position_meeting(target_x, target_y, obj_lily_pad))
@@ -162,6 +166,10 @@ else if (mouse_left_pressed)
 			}
 		}
 	}
+	
+	// reset riding
+	riding = false;
+	instance_riding = noone;
 	
 	// get the distance and speed to reach target
 	var target_distance = point_distance(x, y, target_x, target_y);

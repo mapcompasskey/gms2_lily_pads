@@ -36,5 +36,6 @@ key_up = false;
 key_down = false;
 mouse_left_pressed = false;
 
-riding = false;
-instance_riding = noone;
+// start on a lily pad
+riding = true;
+instance_riding = instance_create_layer(x, y, "LilyPads", obj_lily_pad);
