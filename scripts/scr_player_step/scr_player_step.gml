@@ -104,6 +104,7 @@ else if (moved_to_target)
 	// if the target wasn't an instance
 	if (target_id == noone)
 	{
+		// *fell in the water
 		game_restart();
 	}
 	
