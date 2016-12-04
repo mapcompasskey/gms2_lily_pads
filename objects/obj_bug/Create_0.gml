@@ -1,0 +1,1 @@
+scr_bug_create();
