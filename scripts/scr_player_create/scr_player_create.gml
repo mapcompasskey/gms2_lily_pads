@@ -38,4 +38,4 @@ mouse_left_pressed = false;
 
 // start on a lily pad
 riding = true;
-instance_riding = instance_create_layer(x, y, "LilyPads", obj_lily_pad);
+instance_riding = instance_create_layer(x, y, global.ROOM_LAYER_LILY_PADS, obj_lily_pad);
