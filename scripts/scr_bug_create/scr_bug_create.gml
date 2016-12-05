@@ -12,6 +12,9 @@ velocity_y = (speed_y * global.DOWN);
 last_velocity_x = 0;
 last_velocity_y = 0;
 
+// states
+dying = false;
+
 // get the angle (in degrees) to the target
 var angle = point_direction(x, y, (x + velocity_x), (y + velocity_y));
 

@@ -61,7 +61,7 @@ if (velocity_x != 0 || velocity_y != 0)
 /*
 if (mouse_check_button(mb_left))
 {
-	move_to_target = false;
+	moving = false;
 	
 	// set the target position
 	target_x = mouse_x;
@@ -87,33 +87,37 @@ if (mouse_check_button(mb_left))
 //
 // Move To Target (With Constant Time)
 //
-// move_to_target is cleared in the END STEP event when overshooting the target.
+// "moving" is set to false in the END STEP event the target is about to be overshot.
 //
 
 // if moving to target
-if (move_to_target)
+if (moving)
 {
 	// reset velocity
 	velocity_x = last_velocity_x;
 	velocity_y = last_velocity_y;
 	
-	// if player is colliding with a bug
+	// if the player is colliding with a bug
 	if (place_meeting(x, y, obj_bug))
 	{
 		with (obj_bug)
 		{
-			// if bug is colliding with the player instance
-			if (place_meeting(x, y, other))
+			// if the bug isn't dying
+			if ( ! dying)
 			{
-				instance_destroy();
+				// if the bug is colliding with the player instance
+				if (place_meeting(x, y, other))
+				{
+					dying = true;
+				}
 			}
 		}
 	}
 	
 }
 
-// else, if reached the target
-else if (moved_to_target)
+// else, if target reached
+else if (target_reached)
 {
 	// if the target wasn't an instance
 	if (target_id == noone)
@@ -134,13 +138,13 @@ else if (moved_to_target)
 	target_x = 0;
 	target_y = 0;
 	target_id = noone;
-	moved_to_target = false;
+	target_reached = false;
 }
 
 // else, if mouse left pressed
 else if (mouse_left_pressed)
 {
-	move_to_target = true;
+	moving = true;
 	
 	// set the target position
 	target_x = mouse_x;
@@ -154,7 +158,7 @@ else if (mouse_left_pressed)
 		// if clicking on the lily pad already being ridin
 		if (riding && instance_riding == lilypad)
 		{
-			move_to_target = false;
+			moving = false;
 			exit;
 		}
 		

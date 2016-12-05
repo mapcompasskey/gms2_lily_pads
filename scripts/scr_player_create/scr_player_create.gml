@@ -12,18 +12,17 @@ velocity_y = 0;
 last_velocity_x = 0;
 last_velocity_y = 0;
 
+// target movement
 target_x = 0;
 target_y = 0;
 target_id = noone;
-move_to_target = false;
-moved_to_target = false;
+target_reached = false;
 move_to_target_time = 0.5; // half a second
 
 // states
+moving = true;
+riding = false;
 dying = false;
-hurting = false;
-jumping = false;
-falling = false;
 
 // drawing
 scale_x = 1.0;

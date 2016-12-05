@@ -19,7 +19,7 @@ mx = (velocity_x * global.TICK);
 my = (velocity_y * global.TICK);
 
 // check if the target will be overshot
-if (move_to_target)
+if (moving)
 {
 	var target_overshot = false;
 	
@@ -48,8 +48,10 @@ if (move_to_target)
 	// if the target was overshot
 	if (target_overshot)
 	{
-		move_to_target = false;
-		moved_to_target = true;
+		moving = false;
+		target_reached = true;
+		
+		// update movement variables
 		mx = (target_x - x);
 		my = (target_y - y);
 	}
