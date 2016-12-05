@@ -949,6 +949,25 @@
                 "resourcePath": "scripts\\scr_bug_end_step\\scr_bug_end_step.yy",
                 "resourceType": "GMScript"
             }
+        },
+        {
+            "Key": "11ecca4b-c417-408f-b461-0314cd3b01a4",
+            "Value": {
+                "id": "7735e6b2-a3ff-4ad0-9174-3e479753d5d2",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\scr_bug_step\\scr_bug_step.yy",
+                "resourceType": "GMScript"
+            }
         }
     ],
     "room_order": [
@@ -964,6 +983,7 @@
         "e15d6340-1cd4-477a-a30a-f8e444e25c8c",
         "abeba07b-c9bf-4d93-adbd-2cdb0dc773b5",
         "65961cbc-712f-46ec-a9e0-1ed4f0d0b546",
+        "11ecca4b-c417-408f-b461-0314cd3b01a4",
         "b062c8b3-a791-4c11-a327-3fc60c2acb32",
         "5aa05603-8fb0-4be6-b771-68c0c7d8fbe1"
     ],

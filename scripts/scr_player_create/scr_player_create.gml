@@ -20,7 +20,7 @@ target_reached = false;
 move_to_target_time = 0.5; // half a second
 
 // states
-moving = true;
+moving = false;
 riding = false;
 dying = false;
 

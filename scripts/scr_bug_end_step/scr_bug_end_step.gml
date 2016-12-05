@@ -13,6 +13,7 @@ if ( ! dying)
 	x += mx;
 	y += my;
 	
+	/*
 	// wrap instance back around into the room
 	var wd = (bbox_right - bbox_left);
 	if (bbox_right < (0 - (wd * 2)))
@@ -33,4 +34,47 @@ if ( ! dying)
 	{
 		y = (0 - hg);
 	}
+	*/
+	
+	/*
+	// if moving to right side of the screen
+	if (sign(velocity_x) == 1)
+	{
+		//if (bbox_left > room_width)
+		if (x > room_width)
+		{
+			reposition = true;
+		}
+	}
+	
+	// else, if moving to the left side of the screen
+	else if (sign(velocity_x) == -1)
+	{
+		//if (bbox_right < 0)
+		if (x < 0)
+		{
+			reposition = true;
+		}
+	}
+	
+	// if moving to the bottom of the screen
+	if (sign(velocity_y) == 1)
+	{
+		//if (bbox_top > room_height)
+		if (y > room_height)
+		{
+			reposition = true;
+		}
+	}
+	
+	// if moving to the top of the screen
+	else if (sign(velocity_y) == -1)
+	{
+		//if (bbox_bottom < 0)
+		if (y < 0)
+		{
+			reposition = true;
+		}
+	}
+	*/
 }

@@ -11,6 +11,7 @@ global.LEFT = -1;
 global.UP = -1;
 global.DOWN = 1;
 global.TICK = 0;
+global.SCORE = 0;
 
 // room layer names
 global.ROOM_LAYER_CONTROLLERS = "Controllers";
