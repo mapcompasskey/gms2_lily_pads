@@ -5,29 +5,25 @@ if (dying)
 	global.SCORE += 1;
 	
 	//instance_destroy();
-	
 	reposition = true;
 }
 
-if (key_left && x < 0)
+// reposition if leaving the screen
+if (velocity_x < 0 && bbox_right < 0)
 {
-	show_debug_message("left side");
 	reposition = true;
 }
-else if (key_right && x > room_width)
+else if (velocity_x > 0 && bbox_left > room_width)
 {
-	show_debug_message("right side");
 	reposition = true;
 }
 
-if (key_down && y > room_height)
+if (velocity_y > 0 && bbox_top > room_height)
 {
-	show_debug_message("bottom side");
 	reposition = true;
 }
-else if (key_up && y < 0)
+else if (velocity_y < 0 && bbox_bottom < 0)
 {
-	show_debug_message("top side");
 	reposition = true;
 }
 
@@ -37,230 +33,73 @@ if (reposition)
 	var wd = (bbox_right - bbox_left);
 	var hg = (bbox_bottom - bbox_top);
 	
+	// set min/max values
+	var rnd_speed = random_range(speed_min, speed_max);
+	
 	var min_x = (wd * 2);
 	var max_x = (room_width - min_x);
 	
 	var min_y = (hg * 2);
 	var max_y = (room_height - min_y);
 	
-	key_left = false;
-	key_right = false;
-	key_up = false;
-	key_down = false;
+	var target_x = 0;
+	var target_y = 0;
 		
 	// move off screen
 	switch (irandom_range(0, 3))
 	{
 		// left of screen
 		case 0:
-			show_debug_message("go right");
-			key_right = true;
-			speed_x = random_range(20, 30);
-			speed_y = 0;
-			x = 0;
-			y = (room_height/2);
-			break;
-			
-		// right of screen
-		case 1:
-			show_debug_message("go left");
-			key_left = true;
-			speed_x = random_range(20, 30);
-			speed_y = 0;
-			x = room_width;
-			y = (room_height/2);
-			break;
-			
-		// top of screen
-		case 2:
-			show_debug_message("go down");
-			key_down = true;
-			speed_x = 0;
-			speed_y = random_range(20, 30);
-			x = (room_width/2);
-			y = 0;
-			break;
-			
-		// bottom of screen
-		case 3:
-			show_debug_message("go up");
-			key_up = true;
-			speed_x = 0;
-			speed_y = random_range(20, 30);
-			x = (room_width/2);
-			y = room_height;
-			break;
-	}
-	
-	// reset velocity
-	velocity_x = 0;
-	velocity_y = 0;
-	
-	// update horizontal velocity
-	if (key_left)
-	{
-		velocity_x = speed_x * global.LEFT;
-	}
-	else if (key_right)
-	{
-		velocity_x = speed_x * global.RIGHT;
-	}
-	
-	// update vertical velocity
-	if (key_down)
-	{
-		velocity_y = speed_y * global.DOWN;
-	}
-	else if (key_up)
-	{
-		velocity_y = speed_y * global.UP;
-	}
-	
-	// get the angle (in degrees) to the target
-	var angle = point_direction(x, y, (x + velocity_x), (y + velocity_y));
-
-	// point towards the target
-	image_angle = angle;
-	
-	// update the velocity based on the travel vector
-	velocity_x = (dcos(angle) * (speed_x));
-	velocity_y = (dsin(angle) * (speed_y) * -1);
-	
-	// reset states
-	dying = false;
-	reposition = false;
-}
-
-/*
-// if moving to right side of the screen
-if (velocity_x > 0)
-{
-	//if (bbox_left > room_width)
-	if (x > room_width)
-	{
-		show_debug_message("off right");
-		reposition = true;
-	}
-}
-
-// else, if moving to the left side of the screen
-else if (velocity_x < 0)
-{
-	//if (bbox_right < 0)
-	if (x < 0)
-	{
-		show_debug_message("off left");
-		reposition = true;
-	}
-}
-
-// if moving to the bottom of the screen
-if (velocity_y > 0)
-{
-	//if (bbox_top > room_height)
-	if (y > room_height)
-	{
-		show_debug_message("off bottom");
-		reposition = true;
-	}
-}
-
-// if moving to the top of the screen
-else if (velocity_y < 0)
-{
-	//if (bbox_bottom < 0)
-	if (y < 0)
-	{
-		show_debug_message("off top");
-		reposition = true;
-	}
-}
-
-
-if (reposition)
-{
-	// width and height of the instance
-	var wd = (bbox_right - bbox_left);
-	var hg = (bbox_bottom - bbox_top);
-	
-	var min_x = (wd * 2);
-	var max_x = (room_width - min_x);
-	
-	var min_y = (hg * 2);
-	var max_y = (room_height - min_y);
-	
-	// move off screen
-	switch (irandom_range(0, 3))
-	{
-		// left of screen
-		case 0:
-			show_debug_message("0");
-			x = 0;//(0 - wd);
+			x = (wd * -4);
 			y = random_range(min_y, max_y);
 			
-			speed_x = random_range(20, 30);
-			speed_y = 0;
-			
-			velocity_x = speed_x * global.RIGHT;
-			velocity_y = speed_y;
+			target_x = room_width;
+			target_y = random_range(min_y, max_y);
 			
 			break;
 			
 		// right of screen
 		case 1:
-			show_debug_message("1");
-			x = room_width;//(room_width + wd);
+			x = (room_width + (wd * 4));
 			y = random_range(min_y, max_y);
 			
-			speed_x = random_range(20, 30);
-			speed_y = 0;
-			
-			velocity_x = speed_x * global.LEFT;
-			velocity_y = speed_y;
+			target_x = 0;
+			target_y = random_range(min_y, max_y);
 			
 			break;
 			
 		// top of screen
 		case 2:
-			show_debug_message("2");
 			x = random_range(min_x, max_x);
-			y = 0;//(0 - hg);
+			y = (hg * -4);
 			
-			speed_x = 0
-			speed_y = random_range(20, 30);
-			
-			velocity_x = speed_x;
-			velocity_y = speed_y * global.DOWN;
+			target_x = random_range(min_x, max_x);
+			target_y = room_height;
 			
 			break;
 			
 		// bottom of screen
 		case 3:
-			show_debug_message("3");
 			x = random_range(min_x, max_x);
-			y = room_height;//(room_height + hg);
+			y = (room_height + (hg * 4));
 			
-			speed_x = 0
-			speed_y = random_range(20, 30);
-			
-			velocity_x = speed_x;
-			velocity_y = speed_y * global.UP;
+			target_x = random_range(min_x, max_x);
+			target_y = 0;
 			
 			break;
 	}
 	
 	// get the angle (in degrees) to the target
-	var angle = point_direction(x, y, (x + speed_x), (y + speed_y));
-
+	var angle = point_direction(x, y, target_x, target_y);
+	
 	// point towards the target
 	image_angle = angle;
 	
 	// update the velocity based on the travel vector
-	velocity_x = (dcos(angle) * (speed_x));
-	velocity_y = (dsin(angle) * (speed_y) * -1);
+	velocity_x = (dcos(angle) * (rnd_speed));
+	velocity_y = (dsin(angle) * (rnd_speed) * -1);
 	
 	// reset states
 	dying = false;
 	reposition = false;
 }
-*/
