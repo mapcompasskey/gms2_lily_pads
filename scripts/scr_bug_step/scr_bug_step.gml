@@ -35,6 +35,7 @@ if (reposition)
 	
 	// set min/max values
 	var rnd_speed = random_range(speed_min, speed_max);
+	var rnd_offset = random_range(10, 50);
 	
 	var min_x = (wd * 2);
 	var max_x = (room_width - min_x);
@@ -44,13 +45,13 @@ if (reposition)
 	
 	var target_x = 0;
 	var target_y = 0;
-		
+	
 	// move off screen
 	switch (irandom_range(0, 3))
 	{
 		// left of screen
 		case 0:
-			x = (wd * -4);
+			x = (wd * -rnd_offset);
 			y = random_range(min_y, max_y);
 			
 			target_x = room_width;
@@ -60,7 +61,7 @@ if (reposition)
 			
 		// right of screen
 		case 1:
-			x = (room_width + (wd * 4));
+			x = (room_width + (wd * rnd_offset));
 			y = random_range(min_y, max_y);
 			
 			target_x = 0;
@@ -71,7 +72,7 @@ if (reposition)
 		// top of screen
 		case 2:
 			x = random_range(min_x, max_x);
-			y = (hg * -4);
+			y = (hg * -rnd_offset);
 			
 			target_x = random_range(min_x, max_x);
 			target_y = room_height;
@@ -81,7 +82,7 @@ if (reposition)
 		// bottom of screen
 		case 3:
 			x = random_range(min_x, max_x);
-			y = (room_height + (hg * 4));
+			y = (room_height + (hg * rnd_offset));
 			
 			target_x = random_range(min_x, max_x);
 			target_y = 0;
@@ -95,7 +96,7 @@ if (reposition)
 	// point towards the target
 	image_angle = angle;
 	
-	// update the velocity based on the travel vector
+	// update the velocity vector from angle and speed
 	velocity_x = (dcos(angle) * (rnd_speed));
 	velocity_y = (dsin(angle) * (rnd_speed) * -1);
 	
