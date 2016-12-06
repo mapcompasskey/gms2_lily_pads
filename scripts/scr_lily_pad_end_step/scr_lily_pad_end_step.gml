@@ -13,13 +13,9 @@ y += my;
 
 // wrap instance back around into the room
 var wd = (bbox_right - bbox_left);
-if (bbox_right < -wd)
+var hg = (bbox_bottom - bbox_top);
+if (bbox_right < 0)
 {
 	x = (room_width + wd);
-}
-
-var hg = (bbox_bottom - bbox_top);
-if (bbox_top > room_height)
-{
-	y = -hg;
+	y = (starting_y + random_range((hg / -2), (hg / 2)));
 }
