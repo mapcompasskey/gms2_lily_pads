@@ -968,6 +968,63 @@
                 "resourcePath": "scripts\\scr_bug_step\\scr_bug_step.yy",
                 "resourceType": "GMScript"
             }
+        },
+        {
+            "Key": "675e3470-8160-4c06-9455-0637341d1643",
+            "Value": {
+                "id": "0488a7fd-828b-44e3-adde-d24f0f147ea5",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\game_start_draw_gui\\game_start_draw_gui.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3d2fed9f-4799-4d20-bce8-837effb60ad3",
+            "Value": {
+                "id": "51a116fc-659c-437a-82e9-7f18db8066da",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\\3d2fed9f-4799-4d20-bce8-837effb60ad3.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c94ee74c-0b09-4201-bb4e-f8f1c2c29789",
+            "Value": {
+                "id": "aea171e2-2251-4cda-a4aa-d2e9b43a096a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\scr_string_thousands\\scr_string_thousands.yy",
+                "resourceType": "GMScript"
+            }
         }
     ],
     "room_order": [
@@ -977,6 +1034,7 @@
     "script_order": [
         "e3b509de-7511-4255-99bd-bac9b1a0a000",
         "2a4a3eea-f366-41ed-8305-76784aeacce8",
+        "675e3470-8160-4c06-9455-0637341d1643",
         "f6bbf465-c8ed-44e6-9f1c-42ef315d6e1c",
         "1962b6e7-7c9b-4105-8687-1d603a4ab40e",
         "376ea957-c037-44ab-994d-9173fe8c21bb",
@@ -985,7 +1043,8 @@
         "65961cbc-712f-46ec-a9e0-1ed4f0d0b546",
         "11ecca4b-c417-408f-b461-0314cd3b01a4",
         "b062c8b3-a791-4c11-a327-3fc60c2acb32",
-        "5aa05603-8fb0-4be6-b771-68c0c7d8fbe1"
+        "5aa05603-8fb0-4be6-b771-68c0c7d8fbe1",
+        "c94ee74c-0b09-4201-bb4e-f8f1c2c29789"
     ],
     "tutorial": ""
 }

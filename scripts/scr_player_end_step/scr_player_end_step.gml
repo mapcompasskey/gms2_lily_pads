@@ -64,6 +64,6 @@ y += my;
 // game is over if leaving the room
 if (bbox_right < 0)
 {
-	//game_restart();
-	x = room_width;
+	game_restart();
+	//x = room_width;
 }
