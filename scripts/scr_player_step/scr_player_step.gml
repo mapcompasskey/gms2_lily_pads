@@ -130,6 +130,13 @@ else if (target_reached)
 	// if the target instance exists
 	if (instance_exists(target_id))
 	{
+		// if object is a turtle
+		if (object_get_name(target_id.object_index) == "obj_turtle")
+		{
+			game_restart();
+			exit;
+		}
+		
 		riding = true;
 		instance_riding = target_id;
 	}

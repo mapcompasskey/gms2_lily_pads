@@ -1,7 +1,7 @@
 {
     "id": "f4c68bd8-f461-43c7-afd0-7528d5c36eac",
     "modelName": "GMSprite",
-    "mvc": "1.0",
+    "mvc": "1.1",
     "name": "spr_turtle",
     "For3D": false,
     "HTile": false,

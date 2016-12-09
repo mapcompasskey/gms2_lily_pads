@@ -5,6 +5,10 @@ if ( ! persistent)
     persistent = true;
 }
 
+// global instances
+global.TURTLE = noone;
+global.TURTLE_ACTIVE_AS = noone;
+
 // global parameters
 global.RIGHT = 1;
 global.LEFT = -1;

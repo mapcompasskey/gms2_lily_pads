@@ -36,5 +36,9 @@ key_down = false;
 mouse_left_pressed = false;
 
 // start on a lily pad
-riding = true;
-instance_riding = instance_create_layer(x, y, global.ROOM_LAYER_LILY_PADS, obj_lily_pad);
+//riding = true;
+//instance_riding = instance_create_layer(x, y, global.ROOM_LAYER_LILY_PADS, obj_lily_pad);
+
+// create the turle instance
+global.TURTLE = instance_create_layer(0, 0, global.ROOM_LAYER_LILY_PADS, obj_turtle);
+global.TURTLE.is_active = false;
